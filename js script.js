@@ -31,14 +31,28 @@ let personalMovieDB = {
     genres: [],
     privat: false
 }
-const nameOfFilm1 = prompt('Один из последних просмотренных фильмов', "");
+let nameOfFilm1;
+do {
+    nameOfFilm1 = prompt('Один из последних просмотренных фильмов', "");
+
+} while (nameOfFilm1 === "" || nameOfFilm1.length > 50 || nameOfFilm1 === false)
+if (personalMovieDB["count"] < 10) {
+    alert("Просмотрено довольно мало фильмов")
+} else if (personalMovieDB["count"] <= 30) {
+    alert("Вы классический зретель")
+} else if (personalMovieDB["count"] > 30) {
+    alert("Вы киноман")
+} else {
+    alert("Произошла ошибка")
+
+}
+
+
 const rateOfFilm1 = +prompt('На сколько оцените его?', "0");
-const nameOfFilm2 = prompt('Один из последних просмотренных фильмов', "");
-const rateOfFilm2 = +prompt('На сколько оцените его?', "0");
 
 
 console.log(rateOfFilm1);
 personalMovieDB.movies[nameOfFilm1] = rateOfFilm1;
-personalMovieDB.movies[nameOfFilm2] = rateOfFilm2;
+
 
 console.log(personalMovieDB);
